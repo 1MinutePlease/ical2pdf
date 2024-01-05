@@ -20,7 +20,12 @@ dependencies {
     // (in a separate module for demo project and in testMain).
     // With compose.desktop.common you will also lose @Preview functionality
     implementation(compose.desktop.currentOs)
+
+    // ical4j - Reading the .ics files
     implementation("org.mnode.ical4j:ical4j:3.2.14")
+
+    // File Picker
+    implementation("com.darkrockstudios:mpfilepicker:3.1.0")
 }
 
 compose.desktop {
