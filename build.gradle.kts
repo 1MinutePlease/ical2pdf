@@ -26,6 +26,20 @@ dependencies {
 
     // File Picker
     implementation("com.darkrockstudios:mpfilepicker:3.1.0")
+
+    // Precompose - Navigation, ViewModel
+    val precompose_version = "1.5.10"
+    api(compose.foundation)
+    api(compose.animation)
+
+    api("moe.tlaster:precompose:$precompose_version")
+    // api("moe.tlaster:precompose-molecule:$precompose_version") // For Molecule intergration
+    api("moe.tlaster:precompose-viewmodel:$precompose_version") // For ViewModel intergration
+    api("moe.tlaster:precompose-koin:$precompose_version") // For Koin intergration
+
+    // Koin - Dependency Injection
+    implementation("io.insert-koin:koin-core:3.5.3")
+    implementation("io.insert-koin:koin-compose:1.1.2")
 }
 
 compose.desktop {
