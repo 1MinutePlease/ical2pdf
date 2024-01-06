@@ -2,6 +2,7 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import di.AppModule
@@ -23,11 +24,10 @@ import presentation.navigation.Screen
 @Preview
 fun App() {
     val calendarViewModel = koinViewModel<CalendarViewModel>()
+    val state by calendarViewModel.state.collectAsState()
 
     MaterialTheme {
         val navigator = rememberNavigator()
-        val calenderFile = calendarViewModel.sourceFile.collectAsState()
-
         NavHost(
             navigator = navigator,
             navTransition = NavTransition(),
@@ -35,13 +35,21 @@ fun App() {
         ) {
             scene(Screen.ChooseFile.route) {
                 ChooseFileScreen(
-                    onFileSelected = { calendarViewModel.selectSourceFile(it) },
-                    calenderFile = calenderFile.value,
+                    onFileSelected = {
+                        calendarViewModel.selectSourceFile(it)
+                        calendarViewModel.loadEventsFromSourceFile()
+                    },
+                    calenderFile = state.sourceFile,
                     navigateForward = { navigator.navigate(Screen.ChooseEvents.route) }
                 )
             }
             scene(Screen.ChooseEvents.route) {
-                ChooseEventsScreen()
+                ChooseEventsScreen(
+                    navigateForward = { navigator.navigate(Screen.GroupEvents.route) },
+                    onCheckedChangeEvent = calendarViewModel::checkedChangeEvent,
+                    events = state.events,
+                    chosenEvents = state.chosenEventIds
+                )
             }
             scene(Screen.GroupEvents.route) {
                 GroupEventsScreen()

@@ -4,7 +4,7 @@ import core.util.OtherTags
 import domain.model.Event
 import domain.model.SearchQuery
 
-class FilterEvents {
+class GroupEvents {
 
     operator fun invoke(
         events: List<Event>,

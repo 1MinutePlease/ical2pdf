@@ -17,23 +17,31 @@ class GetEvents(private val icsRepository: ICSRepository) {
         from: LocalDateTime,
         to: LocalDateTime
     ): List<Event> {
-        return icsRepository.getComponentsFromICS(path).map { component ->
-            component.properties.let { properties ->
-                val name = properties.getProperty<Summary>(PropertyTags.SUMMARY).value
+        val ids = mutableListOf<Int>()
+        var highest = 100_000
+        for (i in 0..highest) ids.add(i)
 
+        return icsRepository.getComponentsFromICS(path).map { component ->
+            if (ids.isEmpty()) {
+                for (i in highest+1..highest*2) ids.add(i)
+                highest *= 2
+            }
+
+            component.properties.let { properties ->
                 val startDateTime =
                     properties.getProperty<DtStart>(PropertyTags.DATE_TIME_START).date.time.div(1000).toLocalDateTime()
                 val endDateTime =
                     properties.getProperty<DtEnd>(PropertyTags.DATE_TIME_END).date.time.div(1000).toLocalDateTime()
-
                 if (from.isAfter(startDateTime) || to.isBefore(endDateTime)) {
                     return@let null
                 }
+                val name = properties.getProperty<Summary>(PropertyTags.SUMMARY).value
 
                 Event(
+                    id = ids.random().also { ids.remove(it) },
                     name = name,
                     startDateTime = startDateTime,
-                    endDateTime = endDateTime
+                    endDateTime = endDateTime,
                 )
             }
         }.filterNotNull()
