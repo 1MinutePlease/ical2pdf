@@ -27,6 +27,7 @@ dependencies {
 
     // File Picker
     implementation("com.darkrockstudios:mpfilepicker:3.1.0")
+    testImplementation("junit:junit:4.13.1")
 
     // Precompose - Navigation, ViewModel
     val precompose_version = "1.5.10"
@@ -41,6 +42,11 @@ dependencies {
     // Koin - Dependency Injection
     implementation("io.insert-koin:koin-core:3.5.3")
     implementation("io.insert-koin:koin-compose:1.1.2")
+
+    // Junit, KoinTest - Testing
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
+    testImplementation("io.insert-koin:koin-test:3.5.3")
+
 }
 
 compose.desktop {

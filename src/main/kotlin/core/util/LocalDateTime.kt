@@ -2,6 +2,7 @@ package core.util
 
 import java.time.LocalDateTime
 import java.time.OffsetTime
+import java.time.format.DateTimeFormatter
 
 fun Long.toLocalDateTime(): LocalDateTime {
     return LocalDateTime.ofEpochSecond(
@@ -11,7 +12,7 @@ fun Long.toLocalDateTime(): LocalDateTime {
     )
 }
 
-/*
+
 fun LocalDateTime.toIcalDateTime(): String {
     return this.format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss"))
-}*/
+}
