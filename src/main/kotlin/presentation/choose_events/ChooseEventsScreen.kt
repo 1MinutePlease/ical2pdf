@@ -1,25 +1,32 @@
 package presentation.choose_events
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ListItem
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import domain.model.Event
+import presentation.common.ButtonBar
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-@OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterialApi::class)
 @Composable
 fun ChooseEventsScreen(
     modifier: Modifier = Modifier,
     navigateForward: () -> Unit,
+    navigateBack: () -> Unit,
     onCheckedChangeEvent: (Int, Boolean) -> Unit,
     events: List<Event>,
     chosenEvents: List<Int>,
@@ -32,7 +39,8 @@ fun ChooseEventsScreen(
         Text(
             text = "Choose Events",
             modifier = Modifier.fillMaxWidth(),
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.primary
         )
 
         LazyColumn(Modifier.weight(1f)) {
@@ -43,7 +51,10 @@ fun ChooseEventsScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    Text("Select all")
+                    Text(
+                        text = "Select all",
+                        color = MaterialTheme.colorScheme.primary
+                    )
                     Checkbox(
                         checked = chosenEvents.containsAll(events.map { it.id }),
                         onCheckedChange = {
@@ -66,34 +77,27 @@ fun ChooseEventsScreen(
                     },
                     text = {
                         Text(
-                            text = event.name
+                            text = event.name,
+                            color = MaterialTheme.colorScheme.primary
                         )
                     },
                     secondaryText = {
                         val pattern = if (event.startDateTime == event.endDateTime) "dd.MM.yy" else "dd.MM.yy HH:mm"
                         println("name: ${event.name}, start: ${event.startDateTime}, end: ${event.endDateTime}, pattern: $pattern")
                         Text(
-                            text = event.startDateTime.atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern(pattern))
+                            text = event.startDateTime.atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern(pattern)),
+                            color = MaterialTheme.colorScheme.primary
                         )
                     }
                 )
             }
         }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.End
-        ) {
-            Button(
-                onClick = navigateForward,
-                enabled = chosenEvents.isNotEmpty(),
-                shape = RoundedCornerShape(20.dp),
-                modifier = Modifier
-                    .padding(10.dp)
-            ) {
-                Text("Next")
-            }
-        }
+        ButtonBar(
+            enabledForward = chosenEvents.isNotEmpty(),
+            navigateForward = navigateForward,
+            enabledBack = true,
+            navigateBack = navigateBack
+        )
     }
 }

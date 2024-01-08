@@ -1,5 +1,6 @@
 package presentation
 
+import core.util.toLocalDateTime
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -7,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import moe.tlaster.precompose.viewmodel.ViewModel
 import java.io.File
-import java.time.LocalDateTime
 
 class CalendarViewModel(
     private val getEvents: GetEvents,
@@ -25,18 +25,18 @@ class CalendarViewModel(
         }
     }
 
-    fun setFrom(from: LocalDateTime) {
+    fun setFrom(fromMillis: Long) {
         _state.update {
             it.copy(
-                from = from
+                from = fromMillis.toLocalDateTime()
             )
         }
     }
 
-    fun setTo(to: LocalDateTime) {
+    fun setTo(toMillis: Long) {
         _state.update {
             it.copy(
-                to = to
+                to = toMillis.toLocalDateTime()
             )
         }
     }
@@ -45,6 +45,8 @@ class CalendarViewModel(
         if (state.value.from == null) return
         if (state.value.to == null) return
         if (state.value.sourceFile == null) return
+
+        print("from: ${state.value.from}, to: ${state.value.to}")
 
         _state.update {
             it.copy(

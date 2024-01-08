@@ -1,6 +1,6 @@
 package domain.use_cases
 
-import core.util.OtherTags
+import core.util.Tags
 import domain.model.Event
 import domain.model.SearchQuery
 
@@ -30,7 +30,7 @@ class GroupEvents {
             }
 
             if (!added) {
-                filteredEvents[OtherTags.OTHERS] = filteredEvents[OtherTags.OTHERS]?.plus(event) ?: listOf(event)
+                filteredEvents[Tags.OTHERS] = filteredEvents[Tags.OTHERS]?.plus(event) ?: listOf(event)
             }
         }
 

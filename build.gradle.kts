@@ -20,6 +20,7 @@ dependencies {
     // (in a separate module for demo project and in testMain).
     // With compose.desktop.common you will also lose @Preview functionality
     implementation(compose.desktop.currentOs)
+    implementation(compose.material3)
 
     // ical4j - Reading the .ics files
     implementation("org.mnode.ical4j:ical4j:3.2.14")
