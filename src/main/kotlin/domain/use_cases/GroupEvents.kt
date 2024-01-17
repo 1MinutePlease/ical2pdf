@@ -16,12 +16,12 @@ class GroupEvents {
             var added = false
             searchQueries.forEach search@{ query ->
                 query.exclude.forEach { excludeString ->
-                    if (event.name.contains(excludeString, false)) {
+                    if (event.name.contains(excludeString.value, false)) {
                         return@search
                     }
                 }
                 query.include.forEach { includeString ->
-                    if (event.name.contains(includeString, false)) {
+                    if (event.name.contains(includeString.value, false)) {
                         filteredEvents[query.name] = filteredEvents[query.name]?.plus(event) ?: listOf(event)
                         added = true
                         return@search

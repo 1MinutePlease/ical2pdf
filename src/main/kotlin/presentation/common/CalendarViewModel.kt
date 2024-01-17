@@ -1,6 +1,8 @@
-package presentation
+package presentation.common
 
+import core.util.generateUniqueId
 import core.util.toLocalDateTime
+import domain.model.SearchQuery
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,12 +51,14 @@ class CalendarViewModel(
         print("from: ${state.value.from}, to: ${state.value.to}")
 
         _state.update {
+            val events = getEvents(
+                path = state.value.sourceFile!!.absolutePath,
+                from = state.value.from!!,
+                to = state.value.to!!
+            )
             it.copy(
-                events = getEvents(
-                    path = state.value.sourceFile!!.absolutePath,
-                    from = state.value.from!!,
-                    to = state.value.to!!
-                )
+                events = events,
+                chosenEventIds = events.map { event -> event.id }
             )
         }
         print(_state.value.events)
@@ -67,6 +71,45 @@ class CalendarViewModel(
                     if (selected) list.plus(id)
                     else list.minus(id)
                 }
+            )
+        }
+    }
+
+    fun addSearchQuery(
+        name: String,
+        include: Map<Int, String>,
+        exclude: Map<Int, String>
+    ) {
+        _state.update { it ->
+            it.copy(
+                searchQueries = it.searchQueries.plus(SearchQuery(
+                    id = it.searchQueries.map { query -> query.id }.generateUniqueId(),
+                    name = name,
+                    include = include,
+                    exclude = exclude
+                ))
+            )
+        }
+    }
+
+    fun updateSearchQuery(searchQuery: SearchQuery) {
+        _state.update {
+            it.copy(
+                searchQueries = it.searchQueries.map { query ->
+                    if (query.id != searchQuery.id) query
+                    else searchQuery
+                }
+            )
+        }
+    }
+
+    fun search() {
+        _state.update {
+            it.copy(
+                groupedEvents = groupEvents(
+                    events = state.value.events,
+                    searchQueries = state.value.searchQueries
+                )
             )
         }
     }

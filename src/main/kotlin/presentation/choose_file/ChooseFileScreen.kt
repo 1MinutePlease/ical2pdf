@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import core.util.toLocalDateTime
-import presentation.common.ButtonBar
+import presentation.common.compontents.ButtonBar
 import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,7 +50,7 @@ fun ChooseFileScreen(
             text = "Choose Date Range",
             color = MaterialTheme.colorScheme.primary
         )
-        val dateState = rememberDateRangePickerState(initialDisplayMode = DisplayMode.Input)
+        val dateState = rememberDateRangePickerState()
         val pickerIsShown = remember { mutableStateOf(false) }
         val onClickDate = { pickerIsShown.value = true }
         DateRow(

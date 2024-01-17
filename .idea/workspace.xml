@@ -4,18 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="afgas">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/core/util/FileNames.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/core/util/LocalDateTimeKtTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/data/repository/FakeICSRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/di/TestModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/domain/use_cases/GetEventsTest.kt" afterDir="false" />
+    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="started to implement the choose events screen">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/core/util/Identifier.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/QueryColumn.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/QueryTextField.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/SearchQueryRow.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/core/util/LocalDateTime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/core/util/LocalDateTime.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/repository/ICSRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/repository/ICSRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/kjg_intern.ics" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/kjg_intern.ics" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/kjg_st_martin.ics" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/kjg_st_martin.ics" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/di/AppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/model/SearchQuery.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/model/SearchQuery.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GroupEvents.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GroupEvents.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/CalendarState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/CalendarViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/FilePickerBox.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/FilePickerBox.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/compontents/BottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +38,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
         <option value="JUnit5 Test Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -51,6 +59,9 @@
     <option name="currentCommit" value="1" />
     <option name="onto" value="f58b711a6b7d89213c838ff0423bb9b879fc96f2" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -64,6 +75,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Gradle.Build ical2pdf.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GetEventsTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -75,24 +87,25 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paul/IdeaProjects/ical2pdf/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/paulf/IdeaProjects/ical2pdf/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Kotlin&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\resources" />
       <recent name="C:\Users\Paul\IdeaProjects\ical2pdf\src\main\resources" />
       <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin\presentation\generate_pdf" />
       <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin" />
-      <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin\presentation\common\compontents" />
       <recent name="C:\Users\Paul\IdeaProjects\ical2pdf\src\test\resources" />
       <recent name="C:\Users\Paul\IdeaProjects\ical2pdf\src\main\kotlin\core\util" />
       <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin\presentation\choose_file" />
@@ -101,6 +114,7 @@
       <recent name="" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="presentation.common" />
       <recent name="core.util.tags" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -109,7 +123,7 @@
       <recent name="data.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GetEventsTest">
+  <component name="RunManager" selected="Gradle.desktop">
     <configuration name="GetEventsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -169,6 +183,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-da6bd485" />
+        <option value="jdk-21.0.1-corretto-21.0.1-f644763e9732-eed86825" />
       </set>
     </attachedChunks>
   </component>
@@ -191,6 +206,13 @@
       <workItem from="1704733831160" duration="1881000" />
       <workItem from="1704739297324" duration="5253000" />
       <workItem from="1704744575610" duration="2789000" />
+      <workItem from="1704991516965" duration="4927000" />
+      <workItem from="1705094352286" duration="94000" />
+      <workItem from="1705094562596" duration="1862000" />
+      <workItem from="1705145428230" duration="9942000" />
+      <workItem from="1705254476362" duration="1799000" />
+      <workItem from="1705338697919" duration="1448000" />
+      <workItem from="1705509015790" duration="626000" />
     </task>
     <task id="LOCAL-00001" summary="updated project to a Compose Desktop Application">
       <option name="closed" value="true" />

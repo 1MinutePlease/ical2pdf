@@ -5,7 +5,7 @@ import domain.repository.ICSRepository
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
 import org.koin.dsl.module
-import presentation.CalendarViewModel
+import presentation.common.CalendarViewModel
 
 object AppModule {
     val appModule = module {
