@@ -1,5 +1,5 @@
 package core.util
 
 object Tags {
-    val OTHERS = "SONSTIGES"
+    val OTHERS = "Sonstiges"
 }

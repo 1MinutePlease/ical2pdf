@@ -61,7 +61,6 @@ class CalendarViewModel(
                 chosenEventIds = events.map { event -> event.id }
             )
         }
-        print(_state.value.events)
     }
 
     fun checkedChangeEvent(id: Int, selected: Boolean) {
@@ -77,6 +76,7 @@ class CalendarViewModel(
 
     fun addSearchQuery(
         name: String,
+        acronym: String,
         include: Map<Int, String>,
         exclude: Map<Int, String>
     ) {
@@ -85,6 +85,7 @@ class CalendarViewModel(
                 searchQueries = it.searchQueries.plus(SearchQuery(
                     id = it.searchQueries.map { query -> query.id }.generateUniqueId(),
                     name = name,
+                    acronym = acronym,
                     include = include,
                     exclude = exclude
                 ))
@@ -109,7 +110,7 @@ class CalendarViewModel(
                 groupedEvents = groupEvents(
                     events = state.value.events,
                     searchQueries = state.value.searchQueries
-                )
+                ).also { print(it) }
             )
         }
     }

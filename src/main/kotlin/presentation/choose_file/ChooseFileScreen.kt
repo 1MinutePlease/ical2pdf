@@ -50,7 +50,10 @@ fun ChooseFileScreen(
             text = "Choose Date Range",
             color = MaterialTheme.colorScheme.primary
         )
-        val dateState = rememberDateRangePickerState()
+        val dateState = rememberDateRangePickerState(
+            initialSelectedStartDateMillis = 1704063600000,
+            initialSelectedEndDateMillis = 1736204400000
+        )
         val pickerIsShown = remember { mutableStateOf(false) }
         val onClickDate = { pickerIsShown.value = true }
         DateRow(
@@ -109,6 +112,7 @@ fun ChooseFileScreen(
             navigateForward = navigateForward,
             enabledBack = false,
             navigateBack = null,
+            modifier = Modifier,
         )
     }
 }

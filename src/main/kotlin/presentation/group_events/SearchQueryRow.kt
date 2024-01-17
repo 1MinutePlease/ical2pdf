@@ -2,10 +2,7 @@ package presentation.group_events
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
@@ -30,6 +27,7 @@ fun SearchQueryRow(
     var editing by remember { mutableStateOf(query == null) }
 
     var name by remember { mutableStateOf(query?.name ?: "") }
+    var acronym by remember { mutableStateOf(query?.acronym ?: "") }
     var include by remember { mutableStateOf(query?.include ?: mapOf()) }
     var exclude by remember { mutableStateOf(query?.exclude ?: mapOf()) }
 
@@ -53,7 +51,21 @@ fun SearchQueryRow(
                 onQueryChange = { name = it },
                 enabled = editing,
                 unsavedChanges = query?.name != name,
-                modifier = Modifier,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+        Column(
+            modifier = Modifier
+                .clip(shapeChild)
+                .weight(1f),
+            verticalArrangement = Arrangement.Center
+        ) {
+            QueryTextField(
+                query = acronym,
+                onQueryChange = { acronym = it },
+                enabled = editing,
+                unsavedChanges = query?.acronym != acronym,
+                modifier = Modifier.fillMaxWidth(),
             )
         }
 
@@ -86,17 +98,20 @@ fun SearchQueryRow(
                         if (!onSave(
                                 query?.copy(
                                     name = name,
+                                    acronym = acronym,
                                     include = include,
                                     exclude = exclude
                                 ) ?: SearchQuery(
                                     id = 0,
                                     name = name,
+                                    acronym = acronym,
                                     include = include,
                                     exclude = exclude
                                 )
                             )
                         ) {
                             name = query?.name ?: ""
+                            acronym = query?.acronym ?: ""
                             include = query?.include ?: mapOf()
                             exclude = query?.exclude ?: mapOf()
                         }

@@ -10,13 +10,14 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ButtonBar(
+    modifier: Modifier = Modifier,
     enabledForward: Boolean,
     navigateForward: (() -> Unit)?,
     enabledBack: Boolean = true,
-    navigateBack: (() -> Unit)?
+    navigateBack: (() -> Unit)?,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.End
     ) {

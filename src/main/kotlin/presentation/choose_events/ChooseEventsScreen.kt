@@ -95,7 +95,8 @@ fun ChooseEventsScreen(
             enabledForward = chosenEvents.isNotEmpty(),
             navigateForward = navigateForward,
             enabledBack = true,
-            navigateBack = navigateBack
+            navigateBack = navigateBack,
+            modifier = Modifier
         )
     }
 }

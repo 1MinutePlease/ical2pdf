@@ -50,7 +50,8 @@ fun QueryColumn(
                 },
                 onQueryChange = { onItemEdit(id, it) },
                 interactionSource = interactionSource,
-                enabled = editingEnabled
+                enabled = editingEnabled,
+                modifier = Modifier.fillMaxWidth()
             )
         }
 
@@ -67,7 +68,8 @@ fun QueryColumn(
                             }
                         },
                         onQueryChange = { text = it },
-                        unsavedChanges = true
+                        unsavedChanges = true,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 } else {
                     Row(

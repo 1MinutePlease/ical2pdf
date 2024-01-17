@@ -39,7 +39,7 @@ fun App() {
             NavHost(
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = Screen.GroupEvents.route
+                initialRoute = Screen.ChooseFile.route
             ) {
                 scene(Screen.ChooseFile.route) {
                     ChooseFileScreen(
@@ -68,7 +68,10 @@ fun App() {
                 }
                 scene(Screen.GroupEvents.route) {
                     GroupEventsScreen(
-                        navigateForward = { navigator.navigate(Screen.GeneratePdf.route) },
+                        navigateForward = {
+                            navigator.navigate(Screen.GeneratePdf.route)
+                            calendarViewModel.search()
+                        },
                         navigateBack = { navigator.popBackStack() },
                         state = state,
                         calendarViewModel = calendarViewModel
@@ -76,7 +79,8 @@ fun App() {
                 }
                 scene(Screen.GeneratePdf.route) {
                     GeneratePdfScreen(
-                        navigateBack = { navigator.popBackStack() }
+                        navigateBack = { navigator.popBackStack() },
+                        groupedEvents = state.groupedEvents
                     )
                 }
             }
@@ -92,7 +96,7 @@ fun main() {
         Window(
             title = "ical2pdf",
             onCloseRequest = ::exitApplication,
-            icon = painterResource("icon.ico")
+            icon = painterResource("ic_foreground.svg")
         ) {
             PreComposeApp {
                 KoinContext {

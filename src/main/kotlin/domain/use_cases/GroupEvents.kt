@@ -2,6 +2,7 @@ package domain.use_cases
 
 import core.util.Tags
 import domain.model.Event
+import domain.model.EventGroup
 import domain.model.SearchQuery
 
 class GroupEvents {
@@ -9,10 +10,10 @@ class GroupEvents {
     operator fun invoke(
         events: List<Event>,
         searchQueries: List<SearchQuery>
-    ): Map<String, List<Event>> {
+    ): List<EventGroup> {
         val filteredEvents = mutableMapOf<String, List<Event>>()
 
-        events.groupBy { event ->
+        events.forEach { event ->
             var added = false
             searchQueries.forEach search@{ query ->
                 query.exclude.forEach { excludeString ->
@@ -34,6 +35,12 @@ class GroupEvents {
             }
         }
 
-        return filteredEvents
+        return filteredEvents.map { (name, events) ->
+            EventGroup(
+                acronym = searchQueries.find { it.name == name }?.acronym ?: name,
+                name = name,
+                events = events,
+            )
+        }
     }
 }

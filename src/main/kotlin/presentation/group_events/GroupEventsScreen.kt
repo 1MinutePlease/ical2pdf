@@ -43,6 +43,7 @@ fun GroupEventsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
+                .weight(1f)
                 .clip(RoundedCornerShape(30.dp)),
             verticalArrangement = Arrangement.spacedBy(4.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -59,6 +60,12 @@ fun GroupEventsScreen(
                     ) {
                         Text(
                             text = "Name",
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            text = "Acronym",
                             color = MaterialTheme.colorScheme.onSecondaryContainer,
                             style = MaterialTheme.typography.titleMedium,
                             modifier = Modifier.weight(1f)
@@ -84,18 +91,12 @@ fun GroupEventsScreen(
             ) { query ->
                 SearchQueryRow(
                     query = query,
-                    shape = when(state.searchQueries.indexOf(query)) {
-                        state.searchQueries.size - 1 -> RoundedCornerShape(
+                    shape = when {
+                        state.searchQueries.indexOf(query) == state.searchQueries.size - 1 && !creating -> RoundedCornerShape(
                             bottomStart = 30.dp,
                             bottomEnd = 30.dp,
                             topStart = 2.dp,
                             topEnd = 2.dp
-                        )
-                        0 -> RoundedCornerShape(
-                            topStart = 30.dp,
-                            topEnd = 30.dp,
-                            bottomStart = 2.dp,
-                            bottomEnd = 2.dp
                         )
                         else -> RoundedCornerShape(2.dp)
                     },
@@ -121,7 +122,7 @@ fun GroupEventsScreen(
                                 if (it.name.isNotBlank() &&
                                     it.include.isNotEmpty()
                                 ) {
-                                    calendarViewModel.addSearchQuery(it.name, it.include, it.exclude)
+                                    calendarViewModel.addSearchQuery(it.name, it.acronym, it.include, it.exclude)
                                     true
                                 } else false
                             },
@@ -145,7 +146,6 @@ fun GroupEventsScreen(
                 }
             }
         }
-        Spacer(modifier = Modifier.weight(1f))
         ButtonBar(
             enabledForward = state.searchQueries.isNotEmpty(),
             navigateForward = navigateForward,
