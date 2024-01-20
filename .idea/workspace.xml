@@ -4,27 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="started to implement the choose events screen">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/domain/model/EventGroup.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/ColorPicker.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ic_background.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ic_foreground.svg" afterDir="false" />
+    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen">
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/core/util/Tags.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/core/util/Tags.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/model/SearchQuery.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/model/SearchQuery.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GroupEvents.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GroupEvents.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarState.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/compontents/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/compontents/BottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/compontents/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/components/BottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/ColorPicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/ColorPicker.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/QueryColumn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/QueryColumn.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/SearchQueryRow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/SearchQueryRow.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +52,7 @@
     <option name="onto" value="f58b711a6b7d89213c838ff0423bb9b879fc96f2" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -73,35 +64,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build ical2pdf.executor": "Run",
-    "Gradle.GetEventsTest.executor": "Run",
-    "Gradle.desktop.executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Paul/IdeaProjects/ical2pdf/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editing.templates",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build ical2pdf.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GetEventsTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paul/IdeaProjects/ical2pdf/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\resources" />
       <recent name="C:\Users\Paul\IdeaProjects\ical2pdf\src\main\resources" />
+      <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\resources" />
       <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin\presentation\generate_pdf" />
       <recent name="C:\Users\paulf\IdeaProjects\ical2pdf\src\main\kotlin" />
     </key>
@@ -214,6 +205,8 @@
       <workItem from="1705254476362" duration="1799000" />
       <workItem from="1705338697919" duration="1448000" />
       <workItem from="1705509015790" duration="626000" />
+      <workItem from="1705692989963" duration="5654000" />
+      <workItem from="1705788591885" duration="2180000" />
     </task>
     <task id="LOCAL-00001" summary="updated project to a Compose Desktop Application">
       <option name="closed" value="true" />
@@ -263,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704743550091</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen">
+      <option name="closed" value="true" />
+      <created>1705515463082</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705515463082</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +288,8 @@
     <MESSAGE value="implementation of koin&#10;&#10;setting up of the screens and the navigation" />
     <MESSAGE value="filtering the events by a specific period (selection by a DateRangePicker)&#10;&#10;added Lucy's icon that has the worst resolution&#10;&#10;added a ButtonBar with the next and back button" />
     <MESSAGE value="afgas" />
-    <option name="LAST_COMMIT_MESSAGE" value="afgas" />
+    <MESSAGE value="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

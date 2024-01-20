@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import core.util.toLocalDateTime
-import presentation.common.compontents.ButtonBar
+import presentation.common.components.ButtonBar
 import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)

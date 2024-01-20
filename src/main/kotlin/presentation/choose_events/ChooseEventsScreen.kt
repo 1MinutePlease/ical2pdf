@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import domain.model.Event
-import presentation.common.compontents.ButtonBar
+import presentation.common.components.ButtonBar
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 

@@ -10,12 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import domain.model.EventGroup
-import presentation.common.compontents.ButtonBar
+import presentation.common.components.ButtonBar
 
 @Composable
 fun GeneratePdfScreen(
     modifier: Modifier = Modifier,
     navigateBack: () -> Unit,
+    onGroupChange: (EventGroup) -> Unit,
     groupedEvents: List<EventGroup>
 ) {
     Column(
@@ -56,7 +57,10 @@ fun GeneratePdfScreen(
                             )
                         }
                     }
-                    ColorPicker(color = Color(group.color ?: Color.Transparent.value), onColorChange = {})
+                    ColorPicker(
+                        color = Color(group.color ?: Color.Transparent.value),
+                        onColorChange = { onGroupChange(group.copy(color = it.value)) }
+                    )
                 }
             }
         }

@@ -1,3 +1,5 @@
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -38,10 +40,15 @@ fun App() {
             val navigator = rememberNavigator()
             NavHost(
                 navigator = navigator,
-                navTransition = NavTransition(),
                 initialRoute = Screen.ChooseFile.route
             ) {
-                scene(Screen.ChooseFile.route) {
+                scene(
+                    route = Screen.ChooseFile.route,
+                    navTransition = NavTransition(
+                        createTransition = slideInHorizontally(initialOffsetX = { it }),
+                        destroyTransition = slideOutHorizontally(targetOffsetX = { it })
+                    )
+                ) {
                     ChooseFileScreen(
                         onFileSelected = {
                             calendarViewModel.selectSourceFile(it)
@@ -57,7 +64,13 @@ fun App() {
                         }
                     )
                 }
-                scene(Screen.ChooseEvents.route) {
+                scene(
+                    route = Screen.ChooseEvents.route,
+                    navTransition = NavTransition(
+                        createTransition = slideInHorizontally(initialOffsetX = { it }),
+                        destroyTransition = slideOutHorizontally(targetOffsetX = { it })
+                    )
+                ) {
                     ChooseEventsScreen(
                         navigateForward = { navigator.navigate(Screen.GroupEvents.route) },
                         navigateBack = { navigator.popBackStack() },
@@ -66,7 +79,13 @@ fun App() {
                         chosenEvents = state.chosenEventIds
                     )
                 }
-                scene(Screen.GroupEvents.route) {
+                scene(
+                    route = Screen.GroupEvents.route,
+                    navTransition = NavTransition(
+                        createTransition = slideInHorizontally(initialOffsetX = { it }),
+                        destroyTransition = slideOutHorizontally(targetOffsetX = { it })
+                    )
+                ) {
                     GroupEventsScreen(
                         navigateForward = {
                             navigator.navigate(Screen.GeneratePdf.route)
@@ -77,10 +96,17 @@ fun App() {
                         calendarViewModel = calendarViewModel
                     )
                 }
-                scene(Screen.GeneratePdf.route) {
+                scene(
+                    route = Screen.GeneratePdf.route,
+                    navTransition = NavTransition(
+                        createTransition = slideInHorizontally(initialOffsetX = { it }),
+                        destroyTransition = slideOutHorizontally(targetOffsetX = { it })
+                    )
+                ) {
                     GeneratePdfScreen(
                         navigateBack = { navigator.popBackStack() },
-                        groupedEvents = state.groupedEvents
+                        onGroupChange = calendarViewModel::updateEventGroup,
+                        groupedEvents = state.eventGroups
                     )
                 }
             }

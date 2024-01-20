@@ -18,5 +18,5 @@ data class CalendarState(
         SearchQuery(3, "Lager", "Lager", mapOf(1 to "Lager"), emptyMap()),
         SearchQuery(4, "StSi", "Sternsinger", mapOf(1 to "Sternsinger"), emptyMap()),
     ),
-    val groupedEvents: List<EventGroup> = emptyList()
+    val eventGroups: List<EventGroup> = emptyList()
 )

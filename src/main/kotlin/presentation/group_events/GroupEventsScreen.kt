@@ -1,6 +1,8 @@
 package presentation.group_events
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.ContentTransform
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -20,7 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import presentation.common.CalendarState
 import presentation.common.CalendarViewModel
-import presentation.common.compontents.ButtonBar
+import presentation.common.components.ButtonBar
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -82,6 +84,7 @@ fun GroupEventsScreen(
                             style = MaterialTheme.typography.titleMedium,
                             modifier = Modifier.weight(1f)
                         )
+                        Spacer(Modifier.size(40.dp))
                     }
                 }
             }
@@ -113,7 +116,15 @@ fun GroupEventsScreen(
                 )
             }
             item {
-                AnimatedContent(creating) {
+                AnimatedContent(
+                    targetState = creating,
+                    transitionSpec = {
+                        ContentTransform(
+                            targetContentEnter = slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Down),
+                            initialContentExit = slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Up)
+                        )
+                    }
+                ) {
                     if (creating) {
                         SearchQueryRow(
                             query = null,

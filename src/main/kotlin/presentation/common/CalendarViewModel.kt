@@ -2,6 +2,7 @@ package presentation.common
 
 import core.util.generateUniqueId
 import core.util.toLocalDateTime
+import domain.model.EventGroup
 import domain.model.SearchQuery
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
@@ -107,10 +108,21 @@ class CalendarViewModel(
     fun search() {
         _state.update {
             it.copy(
-                groupedEvents = groupEvents(
+                eventGroups = groupEvents(
                     events = state.value.events,
                     searchQueries = state.value.searchQueries
-                ).also { print(it) }
+                )
+            )
+        }
+    }
+
+    fun updateEventGroup(group: EventGroup) {
+        _state.update {
+            it.copy(
+                eventGroups = it.eventGroups.map { eventGroup ->
+                    if (eventGroup.acronym != group.acronym) eventGroup
+                    else group
+                }
             )
         }
     }
