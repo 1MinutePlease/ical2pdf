@@ -105,6 +105,7 @@ fun App() {
                 ) {
                     GeneratePdfScreen(
                         navigateBack = { navigator.popBackStack() },
+                        generatePdf = calendarViewModel::generatePdf,
                         onGroupChange = calendarViewModel::updateEventGroup,
                         groupedEvents = state.eventGroups
                     )

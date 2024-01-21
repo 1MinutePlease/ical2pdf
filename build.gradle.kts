@@ -11,6 +11,7 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven("https://jitpack.io")
     google()
 }
 
@@ -47,6 +48,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
     testImplementation("io.insert-koin:koin-test:3.5.3")
 
+    // Pdf Generation
+    implementation("com.github.timrs2998:pdf-builder:2.0.0")
+    implementation("org.apache.pdfbox:pdfbox:3.0.0")
 }
 
 compose.desktop {

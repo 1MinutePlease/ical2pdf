@@ -2,6 +2,7 @@ package di
 
 import data.repository.ICSRepositoryImpl
 import domain.repository.ICSRepository
+import domain.use_cases.GeneratePdf
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
 import org.koin.dsl.module
@@ -13,7 +14,8 @@ object AppModule {
         factory {
             CalendarViewModel(
                 getEvents = GetEvents(get()),
-                groupEvents = GroupEvents()
+                groupEvents = GroupEvents(),
+                generatePdf = GeneratePdf()
             )
         }
     }

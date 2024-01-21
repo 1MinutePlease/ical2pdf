@@ -4,6 +4,7 @@ import core.util.generateUniqueId
 import core.util.toLocalDateTime
 import domain.model.EventGroup
 import domain.model.SearchQuery
+import domain.use_cases.GeneratePdf
 import domain.use_cases.GetEvents
 import domain.use_cases.GroupEvents
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,8 @@ import java.io.File
 
 class CalendarViewModel(
     private val getEvents: GetEvents,
-    private val groupEvents: GroupEvents
+    private val groupEvents: GroupEvents,
+    private val generatePdf: GeneratePdf
 ): ViewModel() {
 
     private val _state = MutableStateFlow(CalendarState())
@@ -125,5 +127,14 @@ class CalendarViewModel(
                 }
             )
         }
+    }
+
+    fun generatePdf(path: String) {
+        val pdDocument = generatePdf(
+            title = "PDF Title",
+            eventGroups = state.value.eventGroups
+        )
+        val file = File("$path\\document.pdf")
+        pdDocument.save(file)
     }
 }

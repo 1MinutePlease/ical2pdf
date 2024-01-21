@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen">
+    <list default="true" id="bf9cb989-2db0-40f9-b3d0-4cfdc49ed0a7" name="Changes" comment="implemented color picker in GeneratePdfScreen&#10;&#10;fixed small ui bugs:&#10;- animations for the CreateSearchRow&#10;- nav transitions">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/core/util/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/domain/model/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GeneratePdf.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/domain/use_cases/GeneratePdfMain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_events/ChooseEventsScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/choose_file/ChooseFileScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/di/AppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/model/EventGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/model/EventGroup.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/CalendarViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/compontents/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/components/BottomBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/ColorPicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/ColorPicker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/common/components/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/common/components/BottomBar.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/generate_pdf/GeneratePdfScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/presentation/group_events/GroupEventsScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +35,20 @@
         <option value="JUnit5 Test Class" />
         <option value="Kotlin Object" />
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "1MinutePlease"
+  }
+}]]></component>
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
@@ -50,6 +58,14 @@
     </option>
     <option name="currentCommit" value="1" />
     <option name="onto" value="f58b711a6b7d89213c838ff0423bb9b879fc96f2" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a1e09443-1382-48f4-b54b-678c6bfcac75" />
+        <option name="url" value="https://github.com/1MinutePlease/ical2pdf.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -64,31 +80,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build ical2pdf.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GetEventsTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paul/IdeaProjects/ical2pdf/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build ical2pdf.executor": "Run",
+    "Gradle.GetEventsTest.executor": "Run",
+    "Gradle.desktop.executor": "Run",
+    "Kotlin.GeneratePdfMainKt.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Paul/IdeaProjects/ical2pdf/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.kotlinCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Paul\IdeaProjects\ical2pdf\src\main\resources" />
@@ -164,8 +181,23 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="GeneratePdfMainKt" type="JetRunConfigurationType" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="domain.use_cases.GeneratePdfMainKt" />
+      <module name="ical2pdf.main" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.desktop" />
+      <item itemvalue="Gradle.GetEventsTest" />
+      <item itemvalue="Gradle.LocalDateTimeKtTest" />
+      <item itemvalue="Kotlin.GeneratePdfMainKt" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.GeneratePdfMainKt" />
         <item itemvalue="Gradle.GetEventsTest" />
         <item itemvalue="Gradle.LocalDateTimeKtTest" />
       </list>
@@ -174,7 +206,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-da6bd485" />
         <option value="jdk-21.0.1-corretto-21.0.1-f644763e9732-eed86825" />
       </set>
     </attachedChunks>
@@ -206,7 +237,8 @@
       <workItem from="1705338697919" duration="1448000" />
       <workItem from="1705509015790" duration="626000" />
       <workItem from="1705692989963" duration="5654000" />
-      <workItem from="1705788591885" duration="2180000" />
+      <workItem from="1705788591885" duration="2660000" />
+      <workItem from="1705830067567" duration="11851000" />
     </task>
     <task id="LOCAL-00001" summary="updated project to a Compose Desktop Application">
       <option name="closed" value="true" />
@@ -264,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705515463082</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="implemented color picker in GeneratePdfScreen&#10;&#10;fixed small ui bugs:&#10;- animations for the CreateSearchRow&#10;- nav transitions">
+      <option name="closed" value="true" />
+      <created>1705790857792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705790857792</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +329,8 @@
     <MESSAGE value="filtering the events by a specific period (selection by a DateRangePicker)&#10;&#10;added Lucy's icon that has the worst resolution&#10;&#10;added a ButtonBar with the next and back button" />
     <MESSAGE value="afgas" />
     <MESSAGE value="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="added application icon&#10;&#10;switched to a data class for the EventGroups to also include the color and the acronym&#10;&#10;started to implement the GeneratePdfScreen" />
+    <MESSAGE value="implemented color picker in GeneratePdfScreen&#10;&#10;fixed small ui bugs:&#10;- animations for the CreateSearchRow&#10;- nav transitions" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented color picker in GeneratePdfScreen&#10;&#10;fixed small ui bugs:&#10;- animations for the CreateSearchRow&#10;- nav transitions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

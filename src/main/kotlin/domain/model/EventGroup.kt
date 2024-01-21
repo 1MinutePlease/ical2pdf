@@ -4,5 +4,5 @@ data class EventGroup(
     val acronym: String,
     val name: String,
     val events: List<Event>,
-    val color: ULong? = null
+    val color: Color? = null
 )

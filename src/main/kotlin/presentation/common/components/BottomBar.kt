@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 fun ButtonBar(
     modifier: Modifier = Modifier,
     enabledForward: Boolean,
+    forwardTitle: String = "Next",
     navigateForward: (() -> Unit)?,
     enabledBack: Boolean = true,
     navigateBack: (() -> Unit)?,
@@ -39,7 +40,7 @@ fun ButtonBar(
                 modifier = Modifier
                     .padding(10.dp)
             ) {
-                Text("Next")
+                Text(forwardTitle)
             }
         }
     }
